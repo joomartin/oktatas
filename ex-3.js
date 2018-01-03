@@ -10,3 +10,15 @@ const arr = [
 /**
  * [2, 5, 8]
  */
+
+let result = [];
+for (const numbers of arr) {
+    let sum = 0;
+    for (const n of numbers) {
+        sum += n;
+    }
+
+    result.push(sum / numbers.length);
+}
+
+console.log(result);
