@@ -14,6 +14,9 @@ function foo(callback) {
     console.log('foo');
     callback();
 }
+/*
+ * FIRST CLASS FUNCTIONS 
+ */
 
 foo(x);
 foo(y);
