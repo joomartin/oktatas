@@ -10,6 +10,12 @@ class Foo {
     }
 }
 
+class ShitLogger extends Logger {
+    log() {
+        console.log('asdfadsgsdgd');
+    }
+}
+
 class Logger {
     log(text) {
         throw new Error('log Not implemented');
@@ -19,7 +25,7 @@ class Logger {
 class FileLogger extends Logger {
     log(text) {
         console.log('write to file ' + text);
-    } 
+    }
 }
 
 class DatabaseLogger extends Logger {
