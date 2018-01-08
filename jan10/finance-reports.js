@@ -1,23 +1,52 @@
+const CATEGORIES = [
+    {
+        id: 10,
+        name: 'Főételek'
+    },
+    {
+        id: 11,
+        name: 'Köretek'
+    },
+    {
+        id: 12,
+        name: 'Levesek'
+    },
+    {
+        id: 13,
+        name: 'Savanyúságok'
+    }
+];
+
+const CategoryQuery = {
+    findById(id) {
+        return CATEGORIES.find(c => c.id == id);
+    }
+}
+
 const PRODUCTS = [
     {
         id: 1,
         name: 'Rántott hús',
-        price: 990
+        price: 990,
+        categoryId: 10
     },
     {
         id: 2,
         name: 'Rizs',
-        price: 490
+        price: 490,
+        categoryId: 11
     },
     {
         id: 3,
         name: 'Húsleves',
-        price: 790
+        price: 790,
+        categoryId: 12
     },
     {
         id: 4,
         name: 'Hasábkrumpli',
-        price: 590
+        price: 590,
+        categoryId: 11
     }
 ];
 
@@ -118,7 +147,36 @@ function getMaxOrder() {
  * Visszaadja a legnépszerűbb terméket eladott darabszámmal együtt
  */
 function getMostPopularProduct() {
-    const obj = ORDERS
+    const obj = getProductsBySaleQty();
+    const max = { id: null, qty: 0 };
+
+    Object.keys(obj).forEach(id => {
+        if (obj[id] > max.qty) {
+            max.qty = obj[id];
+            max.id = id;
+        }
+    });
+
+    return Object.assign(
+        {},
+        ProductQuery.findById(max.id),
+        { qty: max.qty }
+    );
+}
+
+/**
+ * Visszaadja, hogy melyik termékből mennyit adtak el
+ * Olyan objektumot ad vissza, ahol az indexek a termék azonosítók, az értékek pedig az eladott mennyiségek
+ */
+function getProductsBySaleQty() {
+    /**
+     * pl.:
+     * {
+     *      1: 3,
+     *      2: 1
+     * }
+     */
+    return ORDERS
         .map(o => o.products)
         .reduce((acc, products) => acc.concat(products))
         .reduce((acc, product) => {
@@ -130,38 +188,6 @@ function getMostPopularProduct() {
 
             return acc;
         }, {});
-
-    let max = 0;
-    let maxId = null;
-    Object.keys(obj).forEach(id => {
-        if (obj[id] > max) {
-            max = obj[id];
-            maxId = id;
-        }
-    });
-
-    return Object.assign(
-        {},
-        ProductQuery.findById(maxId),
-        { qty: max }
-    );
-}
-
-console.log(getMostPopularProduct());
-
-
-/**
- * Visszaadja, hogy melyik termékből mennyit adtak el
- * Olyan objektumot ad vissza, ahol az indexek a termék azonosítók, az értékek pedig az eladott mennyiségek
- */
-function getProductsBySale() {
-    /**
-     * pl.:
-     * {
-     *      1: 3,
-     *      2: 1
-     * }
-     */
 }
 
 /**
@@ -169,7 +195,19 @@ function getProductsBySale() {
  * getProductsBySale -hez hasonló objektumot ad vissza
  */
 function getSumPriceByProducts() {
+    const obj = getProductsBySaleQty();
+    let result = {};
 
+    Object.keys(obj).forEach(id => {
+        const product = ProductQuery.findById(id);
+        result[id] = obj[id] * product.price;
+    });
+
+    return result;
+
+    /**
+     * @TODO rendezd ár szerint
+     */
 }
 
 /**
@@ -189,7 +227,37 @@ function getSumPriceByCategories() {
      *      }
      * ]
      */
+
+    function findCategory(acc, categoryId) {
+        return acc.find(o => o.category.id == categoryId);
+    }
+    
+    return ORDERS
+        .map(o => o.products)
+        .reduce((acc, products) => acc.concat(products))
+        .map(p => Object.assign(
+            {}, 
+            p, 
+            { category: CategoryQuery.findById(p.categoryId) }
+        ))
+        .reduce((acc, product) => {
+            let cat = findCategory(acc, product.categoryId);
+            if (!cat) {
+                cat = {
+                    category: product.category,
+                    sum: 0
+                };
+
+                acc.push(cat);
+            }
+
+            cat.sum += product.price;
+
+            return acc;
+        }, []);
 }
 
-// console.log(getOrdersByPrice('asc'));
-// console.log(getMaxOrder());
+// console.log(getProductsBySaleQty());
+// console.log(getMostPopularProduct());
+// console.log(getSumPriceByProducts());
+console.log(getSumPriceByCategories());
