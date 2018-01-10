@@ -48,6 +48,10 @@ function findProduct(id) {
     return PRODUCTS.find(p => p.id == id);
 }
 
+function findCategory(id) {
+    return CATEGORIES.find(c => c.id == id);
+}
+
 class Order {
     constructor(table, discountRate = 0) {
         this.table = table;
@@ -191,7 +195,7 @@ function getSumPriceByProducts(products) {
 }
 
 /**
- * Visszaadja, hogy melyik termékcsoport mennyi bevételt hozott
+ * Visszaadja, hogy melyik kategória mennyi bevételt hozott
  * Egy array -t ad vissza amiben objektumok vannak
  */
 function getSumPriceByCategories() {
@@ -207,8 +211,26 @@ function getSumPriceByCategories() {
      *      }
      * ]
      */
-}
 
+    const products = getProducts();
+
+    let categories = [];
+    for (const c of CATEGORIES) {
+        let sum = 0;
+        for (const p of products) {
+            if (p.categoryId === c.id) {
+                sum += p.price;
+            }
+        }
+
+        categories.push({
+            category: c,
+            sum
+        });
+    }
+
+    return categories;
+}
 
 function getProducts() {
     let temp = [];
@@ -236,9 +258,12 @@ function getProducts() {
     return products;
 }
 
-const product = getMostPopularProduct();
-console.log(product);
+// const product = getMostPopularProduct();
+// console.log(product);
 
-const products = getProducts();
-const sum = getSumPriceByProducts(products);
+// const products = getProducts();
+// const sum = getSumPriceByProducts(products);
+// console.log(sum);
+
+const sum = getSumPriceByCategories();
 console.log(sum);
