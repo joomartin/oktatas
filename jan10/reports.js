@@ -82,7 +82,7 @@ const order2 = new Order('a2');
 order2.addProducts([findProduct(2), findProduct(3), findProduct(1)]);
 
 const order3 = new Order('a3');
-order3.addProducts([findProduct(3), findProduct(4)]);
+order3.addProducts([findProduct(3), findProduct(4), findProduct(1)]);
 
 const orders = [order1, order2, order3];
 
@@ -115,20 +115,63 @@ function getOrdersByPrice(direction = 'desc') {
     });
 }
 
-const x = getOrdersByPrice('desc');
-console.log(x);
-
 /**
  * Visszaadja azt a rendelést, amelyiknek a legnagyobb volt az ára
  */
 function getMaxOrder() {
+    return getOrdersByPrice()[0];
 }
 
 /**
- * Visszaadja a legnépszerűbb terméket eladott darabszámmal együtt
+ * Visszaadja a legnépszerűbb terméket 
+ *  extra: eladott darabszámmal együtt
  */
 function getMostPopularProduct() {
+    let temp = [];
+    for (const order of orders) {
+        temp.push(order.products);
+    }
+
+    // [
+    //     p, p1, p2
+    // ]
+
+    // [
+    //     [p1, p2], [p1, p3, p4]
+    // ]
+
+    let products = [];
+    for (const ps of temp) {
+        // ps -> Array
+        for (const p of ps) {
+            // p -> Termék
+            products.push(p);
+        }
+    }
+
+    let obj = {};
+    for (const p of products) {
+        if (!obj[p.id]) {
+            obj[p.id] = 0;
+        }
+        
+        obj[p.id]++;
+    }
+
+    let max = null;
+    let maxId = null;
+    for (const k in obj) {
+        if (obj[k] > max) {
+            max = obj[k];
+            maxId = k;
+        }
+    }
+
+    return findProduct(maxId);
 }
+
+const product = getMostPopularProduct();
+console.log(product);
 
 /**
  * Visszaadja, hogy melyik termékből mennyit adtak el
