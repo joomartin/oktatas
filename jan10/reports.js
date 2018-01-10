@@ -71,7 +71,7 @@ class Order {
     }
 
     addProducts(products) {
-        products.forEach(p => this.addProduct(p));        
+        products.forEach(p => this.addProduct(p));
     }
 }
 
@@ -101,17 +101,17 @@ function getOrdersByPrice(direction = 'desc') {
             : a.price - b.price;
 
         // if (direction === 'desc') {
-            // return b.price - a.price;
-            // if (b.price === a.price) return 0;
-            // if (b.price > a.price) return 1;
-            // if (b.price < a.price) return -1;
+        // return b.price - a.price;
+        // if (b.price === a.price) return 0;
+        // if (b.price > a.price) return 1;
+        // if (b.price < a.price) return -1;
         // } else {
-            // return a.price - b.price;
-            // if (a.price === b.price) return 0;
-            // if (a.price > b.price) return 1;
-            // if (a.price < b.price) return -1;
+        // return a.price - b.price;
+        // if (a.price === b.price) return 0;
+        // if (a.price > b.price) return 1;
+        // if (a.price < b.price) return -1;
         // }
-        
+
     });
 }
 
@@ -127,6 +127,90 @@ function getMaxOrder() {
  *  extra: eladott darabszámmal együtt
  */
 function getMostPopularProduct() {
+    const products = getProducts();
+    const obj = getProductsSaleQty(products);
+
+    let max = null;
+    let maxId = null;
+    for (const k in obj) {
+        if (obj[k] > max) {
+            max = obj[k];
+            maxId = k;
+        }
+    }
+
+    return findProduct(maxId);
+}
+
+/**
+ * Visszaadja, hogy melyik termékből mennyit adtak el
+ * Olyan objektumot ad vissza, ahol az indexek a termék azonosítók, az értékek pedig az eladott mennyiségek
+ */
+function getProductsSaleQty(products) {
+    /**
+     * pl.:
+     * {
+     *      1: 3,
+     *      2: 1
+     * }
+     */
+    let obj = {};
+    for (const p of products) {
+        if (!obj[p.id]) {
+            obj[p.id] = 0;
+        }
+
+        obj[p.id]++;
+    }
+
+    return obj;
+}
+
+/**
+ * Visszaadja, hogy melyik termék mennyi bevételt hozott
+ * getProductsBySale -hez hasonló objektumot ad vissza
+ */
+function getSumPriceByProducts(products) {
+    /**
+     * {
+     *      1: 1990,
+     *      2: 2890
+     * }
+     */
+
+    let obj = {};
+    for (const p of products) {
+        if (!obj[p.id]) {
+            obj[p.id] = 0;
+        }
+
+        obj[p.id] += p.price;
+    }
+
+    return obj;
+}
+
+/**
+ * Visszaadja, hogy melyik termékcsoport mennyi bevételt hozott
+ * Egy array -t ad vissza amiben objektumok vannak
+ */
+function getSumPriceByCategories() {
+    /**
+     * pl.:
+     * [
+     *      {
+     *          category: {
+     *              id: 10,
+     *              name: 'Köretek'
+     *          },
+     *          sum: 1990
+     *      }
+     * ]
+     */
+}
+
+
+function getProducts() {
     let temp = [];
     for (const order of orders) {
         temp.push(order.products);
@@ -149,70 +233,12 @@ function getMostPopularProduct() {
         }
     }
 
-    const obj = getProductsSaleQty(products);
-
-    let max = null;
-    let maxId = null;
-    for (const k in obj) {
-        if (obj[k] > max) {
-            max = obj[k];
-            maxId = k;
-        }
-    }
-
-    return findProduct(maxId);
+    return products;
 }
 
 const product = getMostPopularProduct();
 console.log(product);
 
-/**
- * Visszaadja, hogy melyik termékből mennyit adtak el
- * Olyan objektumot ad vissza, ahol az indexek a termék azonosítók, az értékek pedig az eladott mennyiségek
- */
-function getProductsSaleQty(products) {
-    /**
-     * pl.:
-     * {
-     *      1: 3,
-     *      2: 1
-     * }
-     */
-    let obj = {};
-    for (const p of products) {
-        if (!obj[p.id]) {
-            obj[p.id] = 0;
-        }
-        
-        obj[p.id]++;
-    }
-
-    return obj;
-}
-
-/**
- * Visszaadja, hogy melyik termék mennyi bevételt hozott
- * getProductsBySale -hez hasonló objektumot ad vissza
- */
-function getSumPriceByProducts() {
-
-}
-
-/**
- * Visszaadja, hogy melyik termékcsoport mennyi bevételt hozott
- * Egy array -t ad vissza amiben objektumok vannak
- */
-function getSumPriceByCategories() {
-    /**
-     * pl.:
-     * [
-     *      {
-     *          category: {
-     *              id: 10,
-     *              name: 'Köretek'
-     *          },
-     *          sum: 1990
-     *      }
-     * ]
-     */
-}
+const products = getProducts();
+const sum = getSumPriceByProducts(products);
+console.log(sum);
