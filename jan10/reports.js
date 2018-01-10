@@ -44,14 +44,79 @@ const PRODUCTS = [
     }
 ];
 
-class Order {}
+function findProduct(id) {
+    return PRODUCTS.find(p => p.id == id);
+}
+
+class Order {
+    constructor(table, discountRate = 0) {
+        this.table = table;
+        this.discountRate = discountRate;
+
+        this.products = [];
+    }
+
+    get price() {
+        const price = this.getOriginalPrice();
+
+        return price - (price * (this.discountRate / 100));
+    }
+
+    getOriginalPrice() {
+        return this.products.reduce((sum, p) => sum + p.price, 0);
+    }
+
+    addProduct(product) {
+        this.products.push(product);
+    }
+
+    addProducts(products) {
+        products.forEach(p => this.addProduct(p));        
+    }
+}
+
+const order1 = new Order('a1');
+order1.addProducts([findProduct(1), findProduct(2)]);
+
+const order2 = new Order('a2');
+order2.addProducts([findProduct(2), findProduct(3), findProduct(1)]);
+
+const order3 = new Order('a3');
+order3.addProducts([findProduct(3), findProduct(4)]);
+
+const orders = [order1, order2, order3];
 
 /**
  * Visszaadja az összes rendelést, ár szerint rendezve (kedvezményt figyelembe véve)
  * @param String direction asc = növekvő, desc = csökkenő
  */
 function getOrdersByPrice(direction = 'desc') {
+    return orders.sort((a, b) => {
+        // negatív -> első elem nagyobb
+        // 0 -> két elem egyenlő
+        // pozitív -> második elem nagyobb
+
+        return (direction === 'desc')
+            ? b.price - a.price
+            : a.price - b.price;
+
+        // if (direction === 'desc') {
+            // return b.price - a.price;
+            // if (b.price === a.price) return 0;
+            // if (b.price > a.price) return 1;
+            // if (b.price < a.price) return -1;
+        // } else {
+            // return a.price - b.price;
+            // if (a.price === b.price) return 0;
+            // if (a.price > b.price) return 1;
+            // if (a.price < b.price) return -1;
+        // }
+        
+    });
 }
+
+const x = getOrdersByPrice('desc');
+console.log(x);
 
 /**
  * Visszaadja azt a rendelést, amelyiknek a legnagyobb volt az ára
