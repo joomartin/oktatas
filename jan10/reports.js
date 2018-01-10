@@ -149,14 +149,7 @@ function getMostPopularProduct() {
         }
     }
 
-    let obj = {};
-    for (const p of products) {
-        if (!obj[p.id]) {
-            obj[p.id] = 0;
-        }
-        
-        obj[p.id]++;
-    }
+    const obj = getProductsSaleQty(products);
 
     let max = null;
     let maxId = null;
@@ -177,7 +170,7 @@ console.log(product);
  * Visszaadja, hogy melyik termékből mennyit adtak el
  * Olyan objektumot ad vissza, ahol az indexek a termék azonosítók, az értékek pedig az eladott mennyiségek
  */
-function getProductsSaleQty() {
+function getProductsSaleQty(products) {
     /**
      * pl.:
      * {
@@ -185,6 +178,16 @@ function getProductsSaleQty() {
      *      2: 1
      * }
      */
+    let obj = {};
+    for (const p of products) {
+        if (!obj[p.id]) {
+            obj[p.id] = 0;
+        }
+        
+        obj[p.id]++;
+    }
+
+    return obj;
 }
 
 /**
@@ -192,6 +195,7 @@ function getProductsSaleQty() {
  * getProductsBySale -hez hasonló objektumot ad vissza
  */
 function getSumPriceByProducts() {
+
 }
 
 /**
