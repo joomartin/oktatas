@@ -1,5 +1,9 @@
+const readline = require('readline-sync');
+
+const answer = readline.question('Kérsz lapot? ');
+
 const CARDS = [
-    { value: 2, symbol: '2', },
+    { value: 2, symbol: '2' },
     { value: 3, symbol: '3' },
     { value: 4, symbol: '4' },
     { value: 5, symbol: '5' },
@@ -27,3 +31,4 @@ while (true) {
 }
 
 
+Math.floor(Math.random() * CARDS.length);
