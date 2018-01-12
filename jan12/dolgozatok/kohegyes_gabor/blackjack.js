@@ -166,7 +166,7 @@ function computerChars() {
      * 
      * return [
      *      computerCards[0],
-     *      ...computerCards.map(c => 'X')
+     *      ...computerCards.slice(1).map(c => 'X')
      * ];
      */
 }

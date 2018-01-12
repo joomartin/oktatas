@@ -1,3 +1,13 @@
+/**
+ * Nagyon jó lett! Külön pont, hogy még a mennyiséggel is foglalkoztál
+ * Futtatva terminálból, a tied a legátláthatóbb az összes közül
+ * A kód minősége is egész jó, az átlagnál sokkal jobb.
+ * 
+ * A game függvény egy kicsit hosszú lett, de a többi rendben van.
+ * 
+ */
+
+
 const readline = require('readline-sync')
 // const answer = readline.question("Kérsz lapot?")
 // Math.floor(Math.random() * CARDS.length)
@@ -27,8 +37,17 @@ class Logic {
 
     draw() {
         let random = 0
+        /**
+         * Itt azét kicsit túlzás a végtelen ciklus
+         * Az maximum a játék fő ciklusánál oké
+         * Ezt egyébként rekurzívan lehet a legszebben megoldani, azt még nem néztük
+         */
         while (true) {
             random = Math.floor(Math.random() * CARDS.length)
+
+            /**
+             * Itt kétszer csökkented a mennyiséget. Ez szerintem gondot okoz
+             */
             CARDS[random].quantity--
             if (CARDS[random].quantity-- > 0)
                 break
@@ -39,6 +58,14 @@ class Logic {
         return this.array.push(card)
     }
 }
+
+/**
+ * Az a baj, hogy így nem sok haszna van annak, hogy csináltál egy ősosztály
+ * Illetve, ha ugyanaz a függvényed, akkor nem kell a gyerek osztálynál újra megírni.
+ * Tehát a konstruktort is meg a draw is ki lehet törölni mindkét osztályból
+ * 
+ * És akkor így csak a Dealer osztályban marad az ai() nevű függvény
+ */
 
 class Player extends Logic {
     constructor(array, symbol, sum) {
@@ -82,6 +109,7 @@ function game() {
     let playerturn = true
     let dealerturn = true
 
+    // Ezt meg lehetne oldani default értékekketl a konstruktorban
     const player = new Player([], "", 0)
     const dealer = new Dealer([], "", 0)
 
@@ -101,6 +129,15 @@ function game() {
             else
                 dealersymbol += "X "
         }
+
+        /**
+         * Ennek egy modernebb megoldása:
+         * 
+         * const dealerSymbol = [
+         *      dealer.array[0].symbol,
+         *      ...delaer.array.slice(1).map(c => 'X)
+         * ];
+         */
 
         show(dealersymbol, false)
         let answer = ""
@@ -150,6 +187,25 @@ function game() {
             }
         }
         return sum
+
+        /**
+         * Itt tipikusan jobb az of for -t haszálni:
+         * for (const c of array) {
+         *      if (c.value) ...
+         * }
+         * 
+         * Ennek egy modernebb megoldása lehet:
+         * 
+            if (sum < 21) return sum;
+
+            return sum - array
+                .filter(c => c.symbol === 'A')
+                .reduce((sum, c) => sum + c.value, 0);
+
+         *  Ez így egy kicsit hatékonyabb is, mert te a cikluson belül vizsgálod, hgoy a sum nagyobb -e 21 -nél
+         * Tehát ha 12 pontod van, akkor vég mész az összes kártyán, de nem csinálsz semmit.
+         * Ezt még a ciklus előtt le lehetne vizsgálni.
+         */
     }
 
     function show(dealersymbol, end = true) {
