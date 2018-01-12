@@ -1,3 +1,31 @@
+/**
+ * A program jól működik, szép munka.
+ * A logika is egyszerű, és átlátható.
+ * 
+ * A kód szervezés viszont nagyon gyenge, minden a while cikluson belül van, csak egy függvényt emeltél ki, amit én erőszakoltam ki belőled.
+ * A különböző blokkokat ki lehetett volna emelni, pl.:
+ *  - külön a dealer és a player logikáját
+ *  - ami azonos a dealer és a player közt, azt általánosítani
+ *  - külön a végeredmény meghatározását
+ *  - külön a pontok számolásást stb
+ * 
+ * A logika jó, de ez még így nem elég igényes. Az igényes fejlesztésnek része az a hozzállás, hogy kis építő elemekből
+ * hozunk létre nagyobb részeket. És ezeket az építő elemeket próbáljuk általánosan, újrahasznosítható formában megcsinálni.
+ * 
+ * Tudom, hogy ezt még nehéz elképzelni, mert ez egy kicsi projekt, amiből nem akarunk semmit újrahasznosítani stb.
+ * 
+ * De gondolj pl egy játékra, mondjuk egy lol, vagy wow szintű dologra.
+ * Ott mondjuk van 1 millió soros kódbázis, gondolj bele, ha senki nem foglalkozna a normális kód szervezéssel az kb 4 millió sor lenne
+ * És ha előjön egy bug, lehet, hogy nem egy helyen, hanem 3-4-5 helyen kell javítani.
+ * Ha fejlesztenek egy új featuret, lehet, hogy nem 1, hanem 10 helyen igényelne módosítást.
+ * 
+ * Úgy tudom kb 1 sikeres játékra jut 10-15 bukás. Na annak a 10-15 cégnek igénytrlen a csapata és nem bírják
+ * a gyors fejlődést (meg persze üzleti okai is lehetnek stb).
+ * 
+ * Az igényes kód szervezés mindig az elején jelent egy kis plusz időt, és utána sokszorosan megtérül
+ */
+
+
 const readline = require('readline-sync');
 
 const CARDS = [
@@ -114,4 +142,21 @@ function draw(cards) {
         }
     }
     return sum;
+
+    /**
+     * Amiket órákon is szoktam mutatni, map filter, reuct stb függvények azért jók, mert kevesebb logikát igényelnek
+     * Ezt a függvényt fel lehetne írni így is pl.:
+     * 
+     * const sum = cards.reduce((sum, c) => sum + c.value, 0);
+        if (sum < 21) return sum;
+
+        return sum - cards
+            .filter(c => c.symbol === 'A')
+            .reduce((sum, c) => sum + c.value, 0);
+     *
+     * Az egész logika EGY SZINTEN van
+     * Egy valódi projektben ez HATALMAS előny 
+     */
+
+    
 }
