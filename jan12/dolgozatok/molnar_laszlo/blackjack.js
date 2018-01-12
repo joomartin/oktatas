@@ -1,3 +1,7 @@
+/**
+ * Pár sört nyugodtan vehetsz a Daninak!
+ */
+
 const readline = require('readline-sync');
 
 class Player {

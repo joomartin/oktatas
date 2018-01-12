@@ -1,3 +1,20 @@
+/**
+ * Tényleg egész jól néz ki az anyja picsáját!
+ * 
+ * Még azért nem tökéletes, mert ha vesztek utána is megy tovább a játék, meg mindig látom a dealer lapjait
+ * Úgy hogy akadnak benne kisebb buktatók, de nem rossz
+ * 
+ * Néha majd nyomjátok meg a 'Shift + Alt + F' -et.
+ * 
+ * Ami furcsa, hogy pár függvény bizonyos esetben ad vissza értéket, bizonsoy esetben viszont nem.
+ * Ezt elég nehéz megérteni. Ilyenek pl.:
+ *  - dealerAI
+ *  - gameStateLogic
+ * 
+ * De amúgy tényleg jó lett. Főleg úgy, hogy nem is voltatok itt az alapoknál
+ */
+
+
 const readline = require('readline-sync');
 
 const CARDS = [
@@ -23,6 +40,12 @@ function getRandomCards()
 {
     let card = Math.floor(Math.random() * CARDS.length);
     return card;
+
+    /**
+     * Itt felesleges a card változó
+     * 
+     * return Math.floor(Math.random() * CARDS.length);
+     */
 }
 
 function addStarterCards()
@@ -45,6 +68,16 @@ function printCards()
     
     console.log("| A bank kártyái: ", bankCardsForDisplay.join(" | "));
     console.log("| A te kártyáid: ", playerCardsForDisplay.join(" | "));
+
+    /**
+     * Felesleges külön let ..., és utána értéket adni, mehet egybe:
+     * 
+     * let playerCardsForDisplay = playerCards.map(c => c.symbol);
+     * 
+     * De akár átmeneti változók nélkül is meg lehet csinálni:
+     * 
+     * console.log("| A bank kártyái: ", bankCards.map(c => c.symbol).join(" | "));
+     */
 }
 
 function dealerAI(playerscore, dealerscore)
@@ -69,6 +102,28 @@ function dealerAI(playerscore, dealerscore)
         GG(sum.dealerscore,sum.playerscore);
         return isContinue;
     }
+
+    /**
+     * az isContinue változó felesleges, mehet helyette return false;
+     * az else if (playerscore < 18) elég lenne egy sima else
+     * Illetve az 'else if(playerscore < 18)' -ba nem kéne return true ?
+     * 
+     * Ha igen, akkor felesleges a külső else ág is:
+     * 
+     * if (playerscore > dealerscore) {
+     *      if (playerscore >= 18) {
+     *          ...
+     *          return false;
+     *      } else  {
+     *          return true;
+     *      }
+     * }
+     * 
+     * ...
+     * return false;
+     * 
+     * Nem nagy módosítások, de egy kicsit egyszerűbb, meg átláthatóbb lesz tőle az összkép
+     */
 }
 
 function calculateScore(party)
@@ -89,6 +144,24 @@ function calculateScore(party)
     }
 
     return score;
+
+    /**
+     * Ez a függvény szarrá van duplikálva, lehetne így is:
+     * 
+     * function getPoints(cards) {
+     *      let sum = 0;
+     *      for (const c of cards) {
+     *          sum += c.value;
+     *      }
+     * 
+     *      return sum;
+     * }
+     * 
+     * Használat:
+     * 
+     * const playerPoints = getPoints(playerCards);
+     * const bankPoints = getPoints(bankCards);
+     */
 }
 
 function gameStateLogic()
@@ -122,6 +195,19 @@ function addCard(party)
     {
         bankCards.push(CARDS[getRandomCards()]);
     }
+
+    /**
+     * Itt felesleges a party változó, és az if
+     * Át lehet adni a tömböt is, amibe új lapot akarsz osztani:
+     * 
+     * function addCard(cards) {
+     *      cards.push(CARDS[getRandomCards()]);
+     * }
+     * 
+     * Használat:
+     * addCard(playerCards);
+     * addCard(bankCards);
+     */
     
 }
 
@@ -143,6 +229,11 @@ function sumScore()
     return  {playerscore, dealerscore};
     /*console.log("| A bank pontszáma: ", dealerscore);
     console.log("| A te pontszámod: ", playerscore);*/
+
+    /**
+     * EZ A FÜGGVYÉN FELESLEGES
+     * Ugyanazt csinálja, mint a calculateScore. A kettőből csak az egyiket kéne megtartani
+     */
 }
 
 function GG(dealerscore, playerscore)
@@ -192,4 +283,12 @@ while (true)
     if (gameStateLogic() == false) {
         break;
     }
+
+    /**
+     * Az ilyet úgy szokás vizsgálni, hogy
+     * 
+     * if (!gameStateLogic()) {
+     *      ...
+     * }
+     */
 }
