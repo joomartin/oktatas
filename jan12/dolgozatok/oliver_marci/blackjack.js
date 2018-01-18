@@ -186,6 +186,9 @@ function gameStateLogic()
     }
 }
 
+addCard(playerCards);
+addCard(bankCards);
+
 function addCard(party)
 {
     if (party == "player") {

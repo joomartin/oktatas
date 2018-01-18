@@ -130,6 +130,20 @@ function game() {
                 dealersymbol += "X "
         }
 
+        [
+            dealer.array[0].symbol,
+            ...dealer.array.slice(1).map(c => 'X')
+        ] 
+
+        // 1. slice -> array
+        // 2. map -> array
+        // 3. ... szétszedi
+
+        
+        /**
+         *   [1,X,X,X,X]
+         */
+
         /**
          * Ennek egy modernebb megoldása:
          * 
@@ -187,6 +201,19 @@ function game() {
             }
         }
         return sum
+
+        // if (sum < 21) return sum;
+
+        // const aceValue = array
+        //     .filter(c => c.symbol === 'A')
+        //     .reduce((sumAce, c) => {
+        //         return sum > 21 ? sumAce + 10 : sumAce;
+        //     }, 0);
+
+        // return sum - aceValue;
+        
+        
+        
 
         /**
          * Itt tipikusan jobb az of for -t haszálni:

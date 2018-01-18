@@ -83,7 +83,7 @@ function firstTwo() {
 }
 function requestCard() {
     playerCards.push(CARDS[getCard()].symbol);
-    /*if(computerChance == true)*/ computerCards.push(CARDS[getCard()].symbol);
+    if(computerChance()) computerCards.push(CARDS[getCard()].symbol);
 }
 function getCard() {
     let number = Math.floor(Math.random() * CARDS.length);

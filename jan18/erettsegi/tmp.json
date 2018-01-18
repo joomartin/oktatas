@@ -1,0 +1,893 @@
+[
+  {
+    "date": "01 15",
+    "students": [
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "OXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 16",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "OOOOOIO"
+      },
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 17",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Maracuja Kolos",
+        "enrollments": "OOIOOOO"
+      }
+    ]
+  },
+  {
+    "date": "01 23",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Szeder Botond",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 24",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "OXXXXXX"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 25",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 30",
+    "students": [
+      {
+        "name": "Meggy Albin",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "01 31",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Som Klaudia",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 01",
+    "students": [
+      {
+        "name": "Som Klaudia",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 02",
+    "students": [
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 05",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "IIXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 06",
+    "students": [
+      {
+        "name": "Naspolya Frigyes",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 09",
+    "students": [
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "02 12",
+    "students": [
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXOOOON"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 13",
+    "students": [
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Eper Lehel",
+        "enrollments": "OOOOOXX"
+      },
+      {
+        "name": "Licsi Orsolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 22",
+    "students": [
+      {
+        "name": "Eper Lehel",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 23",
+    "students": [
+      {
+        "name": "Eper Lehel",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "02 26",
+    "students": [
+      {
+        "name": "Eper Lehel",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 27",
+    "students": [
+      {
+        "name": "Eper Lehel",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "02 28",
+    "students": [
+      {
+        "name": "Eper Lehel",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XOIOOOO"
+      },
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "OOIIOOO"
+      },
+      {
+        "name": "Lime Korinna",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 01",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Lime Korinna",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Naspolya Frigyes",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Ribizli Matild",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 02",
+    "students": [
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "OOOXXXN"
+      },
+      {
+        "name": "Lime Korinna",
+        "enrollments": "OOOXXXN"
+      }
+    ]
+  },
+  {
+    "date": "03 05",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 06",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 07",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Som Klaudia",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Szilva Bence",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 19",
+    "students": [
+      {
+        "name": "Szeder Botond",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 21",
+    "students": [
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 22",
+    "students": [
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 23",
+    "students": [
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "OXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "03 26",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "IXXXXXX"
+      },
+      {
+        "name": "Maracuja Kolos",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 27",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Maracuja Kolos",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Som Klaudia",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 28",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Maracuja Kolos",
+        "enrollments": "OOIOOOO"
+      }
+    ]
+  },
+  {
+    "date": "03 29",
+    "students": [
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Som Klaudia",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "03 30",
+    "students": [
+      {
+        "name": "Galagonya Alfonz",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Jujuba Ibolya",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "04 02",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 04",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "OOOXXXX"
+      },
+      {
+        "name": "Naspolya Frigyes",
+        "enrollments": "OOOXXXX"
+      },
+      {
+        "name": "Lime Korinna",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Ribizli Matild",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 19",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 20",
+    "students": [
+      {
+        "name": "Berkenye Anna",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "04 23",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 24",
+    "students": [
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 25",
+    "students": [
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "04 26",
+    "students": [
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXOO"
+      }
+    ]
+  },
+  {
+    "date": "04 27",
+    "students": [
+      {
+        "name": "Kajszi Berta",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kivi Adrienn",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "05 07",
+    "students": [
+      {
+        "name": "Birs Judit",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 08",
+    "students": [
+      {
+        "name": "Datolya Vilmos",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 09",
+    "students": [
+      {
+        "name": "Berkenye Anna",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kumkvat Hunor",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "OOXOOOO"
+      },
+      {
+        "name": "Nektarin Csepke",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Ribizli Matild",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Szilva Bence",
+        "enrollments": "OOIOOOO"
+      }
+    ]
+  },
+  {
+    "date": "05 10",
+    "students": [
+      {
+        "name": "Birs Judit",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 11",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "OOOXXXN"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "OOOXXXN"
+      }
+    ]
+  },
+  {
+    "date": "05 14",
+    "students": [
+      {
+        "name": "Citrom Lajos",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 15",
+    "students": [
+      {
+        "name": "Citrom Lajos",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 16",
+    "students": [
+      {
+        "name": "Berkenye Anna",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Citrom Lajos",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Datolya Vilmos",
+        "enrollments": "OOXOOOO"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "OOXOOOO"
+      },
+      {
+        "name": "Dinnye Emese",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Lime Korinna",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 17",
+    "students": [
+      {
+        "name": "Citrom Lajos",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 18",
+    "students": [
+      {
+        "name": "Citrom Lajos",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "05 22",
+    "students": [
+      {
+        "name": "Cseresznye Leila",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 23",
+    "students": [
+      {
+        "name": "Berkenye Anna",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Kumkvat Hunor",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Pomelo Ede",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Szilva Bence",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 24",
+    "students": [
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "05 25",
+    "students": [
+      {
+        "name": "Datolya Vilmos",
+        "enrollments": "XXXXXXN"
+      },
+      {
+        "name": "Kuruba Vendel",
+        "enrollments": "XXXXXXN"
+      }
+    ]
+  },
+  {
+    "date": "06 01",
+    "students": [
+      {
+        "name": "Nektarin Csepke",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 04",
+    "students": [
+      {
+        "name": "Datolya Vilmos",
+        "enrollments": "OOOXXOO"
+      }
+    ]
+  },
+  {
+    "date": "06 05",
+    "students": [
+      {
+        "name": "Alma Hedvig",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 06",
+    "students": [
+      {
+        "name": "Berkenye Anna",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Papaja Inez",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Egres Ulrik",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 07",
+    "students": [
+      {
+        "name": "Papaja Inez",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 08",
+    "students": [
+      {
+        "name": "Papaja Inez",
+        "enrollments": "XXOXXXN"
+      }
+    ]
+  },
+  {
+    "date": "06 11",
+    "students": [
+      {
+        "name": "Papaja Inez",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 13",
+    "students": [
+      {
+        "name": "Birs Judit",
+        "enrollments": "OOIOOOO"
+      },
+      {
+        "name": "Papaja Inez",
+        "enrollments": "XXXXXXX"
+      },
+      {
+        "name": "Datolya Vilmos",
+        "enrollments": "XXXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 14",
+    "students": [
+      {
+        "name": "Papaja Inez",
+        "enrollments": "OOXXXXX"
+      }
+    ]
+  },
+  {
+    "date": "06 15",
+    "students": [
+      {
+        "name": "Kumkvat Hunor",
+        "enrollments": "XXOXXXN"
+      }
+    ]
+  }
+]
