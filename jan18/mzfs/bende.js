@@ -1,5 +1,5 @@
 (async () => {
-    const fs = require("mz/fs")
+    const fs = require("mz/fs");
     const path = require('path');
     const readline = require('readline-sync');
 
