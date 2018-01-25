@@ -5,7 +5,8 @@ const USERS = [
     { id: 4, name: 'Pisti' },
     { id: 5, name: 'Marci' },
     { id: 6, name: 'Martin' },
-    { id: 7, name: 'Béla' }
+    { id: 7, name: 'Béla' },
+    { id: 8, name: 'xy' }
 ];  
 
 console.log('yayyy');
