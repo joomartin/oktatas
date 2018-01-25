@@ -28,8 +28,8 @@ function postsToString(posts) {
 
 function getTodoStat(todos) {
     return todos.reduce((acc, todo) => {
-        if (todo.completed) acc.completed++;
-        else acc.uncompleted++;
+        if (todo.completed === true) acc.completed++;
+        else if(todo.completed === false) acc.uncompleted++;
 
         return acc;
     }, { completed: 0, uncompleted: 0 });
@@ -37,5 +37,6 @@ function getTodoStat(todos) {
 
 module.exports = {
     filterEntities,
-    entitiesToString
+    entitiesToString,
+    getTodoStat
 };
