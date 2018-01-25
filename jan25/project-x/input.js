@@ -12,7 +12,7 @@ async function getUser() {
 }
 
 async function validateUsername(username) {
-    const users = await http.getUsers();
+    const users = await http.get('users');
     return users.find(u => u.username === username);
 }
 
