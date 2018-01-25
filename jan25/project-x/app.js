@@ -8,15 +8,10 @@ const file = require('./file');
         const user = await input.getUser();
         const type = input.getType();
 
-        const data = (type === 'todos')
-            ? await http.getTodos()
-            : await http.getPosts();
-
+        const data = await http.get(type);
         const filteredData = helper.filterEntities(data, user.id);
-        const content = (type === 'todos')
-            ? helper.todosToString(filteredData)
-            : helper.postsToString(filteredData);
 
+        const content = helper.entitiesToString(type, data);
         await file.writeFile(user.username, content);
     } catch (err) {
         console.log(err);

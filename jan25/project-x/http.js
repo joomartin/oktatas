@@ -22,5 +22,5 @@ async function get(endpoint) {
 }
 
 module.exports = {
-    getUsers, getPosts, getTodos
+    get, getUsers, getPosts, getTodos, BASE_URL
 };
