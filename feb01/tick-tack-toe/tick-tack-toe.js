@@ -1,7 +1,20 @@
 let currentTurn = 'X';
 let isGameOver = false;
+let isFirstClick = true;
+
+const audioGabor = document.getElementById('gabor-audio');
+const audioMarci = document.getElementById('marci-audio');
 
 $('table td').click(function () {
+    if (currentTurn === 'X') {
+        audioMarci.pause();
+        audioGabor.play();
+    } else {
+        audioMarci.play();
+        audioGabor.pause();
+    }
+
+
     if (isGameOver) {
         return;
     }
