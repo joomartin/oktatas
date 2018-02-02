@@ -1,3 +1,5 @@
+let SIZE = 5;
+
 let currentTurn = 'X';
 let isGameOver = false;
 let isFirstClick = true;
@@ -5,15 +7,21 @@ let isFirstClick = true;
 const audioGabor = document.getElementById('gabor-audio');
 const audioMarci = document.getElementById('marci-audio');
 
-$('table td').click(function () {
-    if (currentTurn === 'X') {
-        audioMarci.pause();
-        audioGabor.play();
-    } else {
-        audioMarci.play();
-        audioGabor.pause();
-    }
+createTable();
 
+$('#set-size').click(function () {
+    const size = $('#size').val();
+    SIZE = size;
+
+    createTable();
+});
+
+$('div.container').on('click', 'table td', function () {
+    if (currentTurn === 'X') {
+        playAudio(audioGabor, audioMarci);
+    } else {
+        playAudio(audioMarci, audioGabor);
+    }
 
     if (isGameOver) {
         return;
@@ -38,7 +46,9 @@ $('table td').click(function () {
         alert('Dontetlen');
     }
 
-    flipTurn();
+    if (!isGameOver && !isDraw(matrix)) {
+        flipTurn();        
+    }
 });
 
 function flipTurn() {
@@ -82,19 +92,19 @@ function getPoints(matrix, rows, columns) {
     const leftUpPoints = leftUp(matrix, rows, columns);
     const rightDownPoints = rightDown(matrix, rows, columns);
 
-    if (leftPoints + rightPoints === 4) {
+    if (leftPoints + rightPoints === SIZE - 1) {
         gameOver();
     }
 
-    if (upPoints + downPoints === 4) {
+    if (upPoints + downPoints === SIZE - 1) {
         gameOver();
     }
 
-    if (rightUpPoints + leftDownPoints === 4) {
+    if (rightUpPoints + leftDownPoints === SIZE - 1) {
         gameOver();
     }
 
-    if (leftUpPoints + rightDownPoints === 4) {
+    if (leftUpPoints + rightDownPoints === SIZE - 1) {
         gameOver();
     }
 }
@@ -213,12 +223,18 @@ function rightDown(matrix, rows, columns) {
 
 function gameOver() {
     isGameOver = true;
+
+    if (currentTurn === 'X') {
+        playAudio(audioGabor, audioMarci);
+    } else {
+        playAudio(audioMarci, audioGabor);
+    }
+
     setTimeout(() => {
         const confirmValue = confirm(`${currentTurn} nyert! Akarsz ujra jatszani?`);
 
-        if (confirmValue) {
+        if (confirmValue) 
             window.location.reload();
-        }
     }, 0);
 }
 
@@ -226,4 +242,29 @@ function isDraw(matrix) {
     return !isGameOver && matrix
         .map(arr => arr.some(item => item === ''))
         .every(item => !item);
+}
+
+function playAudio(toPlay, toPause) {
+    return true;
+    toPause.pause();
+
+    toPlay.load();
+    toPlay.play();
+}
+
+function createTable() {
+    $('table').remove();
+    const table = $('<table></table>');
+
+    for (let i = 0; i < SIZE; i++) {
+        let tr = $('<tr></tr>');
+
+        for (let j = 0; j < SIZE; j++) {
+            tr.append('<td></td>');
+        }
+
+        table.append(tr);        
+    }
+
+    $('div.container').append(table);    
 }

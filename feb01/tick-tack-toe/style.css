@@ -24,19 +24,21 @@ table td.red:hover {
 }
 
 .red {
-    color: #000; /* Fallback for older browsers */
+    color: #e74c3c; 
+    /* color: #000;
     color: rgba(255, 255, 255, 0.1);
 
     background-image: url('kohegyes2.jpg');
     background-repeat:no-repeat;
-    background-size: 120px 120px;
+    background-size: 120px 120px; */
 }
 
 .blue {
-    color: #000; /* Fallback for older browsers */
+    color: #2980b9; 
+    /* color: #000;
     color: rgba(255, 255, 255, 0.5);
 
     background-image: url('unnamed.jpg');
     background-repeat:no-repeat;
-    background-size: 120px 120px;
+    background-size: 120px 120px; */
 }
