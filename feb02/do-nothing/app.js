@@ -13,7 +13,9 @@ interval = setInterval(function () {
         clearInterval(interval);
         alert('Nyertel!!!');
         isOver = true;
-    } else {
+    } else if (date.format('mm:ss') === '00:01') {
+        $(document).trigger('click');
+    }else {
         date = moment(date).subtract(1, 's');
         setCounter(date);
     }
@@ -36,7 +38,7 @@ function eventHappened() {
         return;
     }
 
-    error.show().fadeOut(2000);
+    error.show().fadeOut(4000);
     resetCounter();
 }
 
