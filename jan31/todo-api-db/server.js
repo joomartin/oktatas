@@ -2,11 +2,36 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('promise-mysql');
 const moment = require('moment');
+const cors = require('cors');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(cors({
+//     origin: 'http://127.0.0.1:8000',
+//     credentials: true
+//   }));
+
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:8000");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
+
+// app.use(function(req, res, next) {
+//     var allowedOrigins = ['http://127.0.0.1:8000', 'http://localhost:8000'];
+//     var origin = req.headers.origin;
+//     if(allowedOrigins.indexOf(origin) > -1){
+//          res.setHeader('Access-Control-Allow-Origin', origin);
+//     }
+//     //res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8020');
+//     res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     res.header('Access-Control-Allow-Credentials', true);
+//     return next();
+//   });
 
 /**
  * - GET /todos viszaadja az összes todot
@@ -49,13 +74,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
             default: break;
         }
 
-        const result = await conn.query(queryStr);            
+        const result = await conn.query(queryStr);
         response.json(result);
     });
-    
+
     app.get('/todos/:id', async (request, response) => {
-        const result = await conn.query('SELECT * FROM todos WHERE id = ' + request.params.id + ' LIMIT 1');            
-        
+        const result = await conn.query('SELECT * FROM todos WHERE id = ' + request.params.id + ' LIMIT 1');
+
         if (result.length === 0) {
             response.status(404);
             response.json({
@@ -63,9 +88,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
             });
         }
 
-        response.json(result[0]);               
+        response.json(result[0]);
     });
-    
+
     app.delete('/todos/:id', async (request, response) => {
         const result = await conn.query('DELETE FROM todos WHERE id = ' + request.params.id + ' LIMIT 1');
 
@@ -82,7 +107,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
             count: result.affectedRows
         });
     });
-    
+
     app.post('/todos', async (request, response) => {
         const result = await conn.query(`      
             INSERT INTO todos(title, body) 
@@ -93,7 +118,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
             id: result.insertId
         });
     });
-    
+
     app.put('/todos/:id', async (request, response) => {
         const result = await conn.query(`
             UPDATE todos 
@@ -117,7 +142,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
             count: result.affectedRows
         });
     });
-    
+
     app.patch('/todos/:id', async (request, response) => {
         const result = await conn.query(`
             UPDATE todos 
@@ -139,7 +164,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
             count: result.affectedRows
         });
     });
-    
+
     app.listen(8000, () => {
         console.log('Server is listening on port 8000');
     });
