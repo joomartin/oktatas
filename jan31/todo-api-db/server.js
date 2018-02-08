@@ -74,6 +74,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
             default: break;
         }
 
+        queryStr += ' ORDER BY dueDate';
         const result = await conn.query(queryStr);
         response.json(result);
     });
@@ -114,9 +115,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
             VALUES("${request.body.title}", "${request.body.body}")
         `);     // <- BACKTICK
 
-        response.json({
-            id: result.insertId
-        });
+        const todos = await conn.query('SELECT * FROM todos WHERE id = ' + result.insertId + ' LIMIT 1');
+
+        response.json(todos[0]);
     });
 
     app.put('/todos/:id', async (request, response) => {
@@ -124,7 +125,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
             UPDATE todos 
             SET 
                 title = "${request.body.title}",
-                body = "${request.body.body}"
+                body = "${request.body.body}",
+                isCompleted = "${request.body.isCompleted}"
             WHERE id = ${request.params.id}
             LIMIT 1
         `);
@@ -141,6 +143,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
         response.json({
             count: result.affectedRows
         });
+    });
+
+    app.options('/todos/:id', function (req, res) {
+        res.json(true);
     });
 
     app.patch('/todos/:id', async (request, response) => {
