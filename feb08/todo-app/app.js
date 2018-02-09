@@ -1,13 +1,12 @@
 $(document).ready(async function () {
     const main = $('#main');
 
+    initDueDate();
+
     const response = await axios.get('http://127.0.0.1:8000/todos?isCompleted=0');
     const todos = response.data;
 
-    for (const todo of todos) {
-        const card = createCard(todo);
-        main.append(card);
-    }
+    renderTodos(todos);
 
     function createCard(todo) {
         const source = $('#card-template').html();
@@ -15,6 +14,10 @@ $(document).ready(async function () {
 
         todo.isFuture = isFuture(todo);
         todo.fromNow = moment(todo.dueDate).fromNow();
+
+        todo.body = todo.body.length > 30 
+            ? todo.body.slice(0, 30) + '...'
+            : todo.body;
 
         return template(todo);
     }
@@ -30,14 +33,17 @@ $(document).ready(async function () {
         return true;
     }
 
-    $('body').on('click', '.remove', async function () {
+    $('body').on('click', '.remove', async function (event) {
         const id = $(this).data('id');
         await axios.delete('http://127.0.0.1:8000/todos/' + id);
 
         removeTodo(this);
+
+        event.stopPropagation();
+        return false;
     });
 
-    $('body').on('click', '.complete', async function () {
+    $('body').on('click', '.complete', async function (event) {
         const id = $(this).data('id');
         const todo = todos.find(t => t.id == id);
 
@@ -48,12 +54,13 @@ $(document).ready(async function () {
         });
 
         removeTodo(this);
+
+        event.stopPropagation();
     });
 
     $('#create-todo').click(function () {
         $('#create-form').removeClass('d-none');
 
-        $('#create-todo').addClass('d-none');
         $('#title').focus();
     });
 
@@ -63,6 +70,7 @@ $(document).ready(async function () {
 
     $('#submit').click(async function () {
         submit();
+        resetForm();
         hideForm();
     });
 
@@ -73,17 +81,17 @@ $(document).ready(async function () {
 
     function hideForm() {
         $('#create-form').addClass('d-none');
-        $('#create-todo').removeClass('d-none');
     }
 
     async function submit() {
         const data = {
             title: $('#title').val(),
-            body: $('#body').val()
+            body: $('#body').val(),
+            dueDate: $('#dueDate').val()
         };
 
-        if (!data.title || !data.body) {
-            alert('Minden mező kötelező');
+        if (!data.title) {
+            alert('Title is required');
             return false;
         }
 
@@ -96,6 +104,7 @@ $(document).ready(async function () {
     function resetForm() {
         $('#title').val('');
         $('#body').val('');
+        initDueDate();
 
         $('#title').focus();
     }
@@ -104,5 +113,47 @@ $(document).ready(async function () {
         $(elem).parents('.card').fadeOut(500, function () {
             $(this).remove();
         });
+    }
+
+    async function navClick(queryParamStr, element) {
+        setActive(element);
+
+        const response = await axios.get('http://127.0.0.1:8000/todos?' + queryParamStr);
+        const todos = response.data;
+
+        renderTodos(todos);
+    }
+
+    $('#all').click(async function () {
+        await navClick('isCompleted=0', this);
+    });
+
+    $('#today').click(async function () {
+        await navClick('isCompleted=0&dueDate=day', this)
+    });
+
+    $('#this-week').click(async function () {
+        await navClick('isCompleted=0&dueDate=week', this)
+    });
+
+    $('#completed').click(async function () {
+        await navClick('isCompleted=1', this)
+    });
+
+    function renderTodos(todos) {
+        main.html('');
+        for (const todo of todos) {
+            const card = createCard(todo);
+            main.append(card);
+        }
+    }
+
+    function setActive(element) {
+        $('ul.nav a').removeClass('active');
+        $(element).addClass('active');
+    }
+
+    function initDueDate() {
+        $('#dueDate').val(moment().format('YYYY-MM-DD HH:MM'));
     }
 });
