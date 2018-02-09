@@ -111,8 +111,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
     app.post('/todos', async (request, response) => {
         const result = await conn.query(`      
-            INSERT INTO todos(title, body) 
-            VALUES("${request.body.title}", "${request.body.body}")
+            INSERT INTO todos(title, body, dueDate) 
+            VALUES("${request.body.title}", "${request.body.body}", "${request.body.dueDate}")
         `);     // <- BACKTICK
 
         const todos = await conn.query('SELECT * FROM todos WHERE id = ' + result.insertId + ' LIMIT 1');

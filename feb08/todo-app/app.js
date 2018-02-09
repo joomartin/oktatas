@@ -10,30 +10,13 @@ $(document).ready(async function () {
     }
 
     function createCard(todo) {
-        let html = `
-            <div class="card mr-20" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">${todo.title}</h5>
-                    <p class="card-text">${todo.body}</p>`;
+        const source = $('#card-template').html();
+        const template = Handlebars.compile(source);
 
-        if (isFuture(todo)) {
-            html += `<p class="card-text">${moment(todo.dueDate).fromNow()}</p>`;
-        } else {
-            html += `<p class="card-text text-danger">${moment(todo.dueDate).fromNow()}</p>`;
-        }
+        todo.isFuture = isFuture(todo);
+        todo.fromNow = moment(todo.dueDate).fromNow();
 
-        html += `
-                    <button class="btn btn-danger remove" data-id="${todo.id}">                        
-                        <span class="oi oi-trash" title="Remove" aria-hidden="true"></span>
-                    </button>
-
-                    <button class="btn btn-primary complete" data-id="${todo.id}">                        
-                        <span class="oi oi-check" title="Complete" aria-hidden="true"></span>
-                    </button>
-                </div>
-            </div>`;
-
-        return html;
+        return template(todo);
     }
 
     function isFuture(todo) {
