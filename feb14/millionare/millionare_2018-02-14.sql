@@ -44,10 +44,10 @@ VALUES
 	(2,'Nem','B',1),
 	(3,'Talán','C',1),
 	(5,'Nem tudom','D',1),
-	(6,'Igen','A',1),
-	(7,'Nem','B',1),
-	(8,'Talán','C',1),
-	(9,'Nem tudom','D',1);
+	(6,'Igen','A',2),
+	(7,'Nem','B',2),
+	(8,'Talán','C',2),
+	(9,'Nem tudom','D',2);
 
 /*!40000 ALTER TABLE `answers` ENABLE KEYS */;
 UNLOCK TABLES;
