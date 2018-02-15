@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Legyen ön is milliomos</title>
+
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Legyen ön is milliomos</h1>
+        <div class="row">
+            <div class="col-sm-8 left">
+                <div id="question-container">
+                    <div class="question-body text-center mb-1 pt-2">Blaj lbalksdhfkésldjf aksdjfhjklsa df</div>
+
+                    <button class="btn answer mb-1 mr-4 text-left"><span>A:</span> sfsd</button>
+                    <button class="btn answer mb-1 mr-4 text-left"><span>B:</span> sdhfgjg</button>
+                    <button class="btn answer mb-1 mr-4 text-left"><span>C:</span> zuutzf</button>
+                    <button class="btn answer mb-1 mr-4 text-left"><span>D:</span> gnbvmvb</button>
+                </div>
+            </div>
+            <div class="col-sm-4 right">
+                <div id="helps">HELPS</div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script src="./app.js"></script>
+</body>
+
+<script id="prizes-template" type="text/x-handlebars-template">
+    <table id="prizes">
+        {{#each prizes}}
+        <tr data-id="{{ this.id }}" {{#if this.isCheckpoint}}class="checkpoint"{{/if}}>
+            <td class="prize-id">{{ this.id }}</td>
+            <td>{{ this.prize }} Ft</td>
+        </tr>
+        {{/each}}
+    </table>
+</script>
+
+</html>

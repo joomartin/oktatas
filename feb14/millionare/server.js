@@ -50,8 +50,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
                 correctAnswer: question.correctAnswer
             });
         }
-
-        response.json(questions);
     });
     
     app.listen(8000, () => {
