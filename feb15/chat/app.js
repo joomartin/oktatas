@@ -44,4 +44,30 @@ $(document).ready(function () {
             scrollPane.scrollTop = scrollPane.scrollHeight; 
         });
     });
+
+    socket.on('new user', function (users) {
+        const usersDiv = $('#users');
+        usersDiv.html('');
+
+        for (const user of users) {
+            const userDiv = $('<div></div>');
+
+            userDiv
+                .html(user.username)
+                .data('id', user.id)
+                .addClass('user');
+
+            usersDiv.append(userDiv);
+        }
+    });
+
+    $('body').on('click', '.user', function () {
+        const chatWindow = $('#chat-window');
+
+        chatWindow.removeClass('d-none');
+        chatWindow
+            .find('.username')
+            .html($(this).html());
+    });
+
 });

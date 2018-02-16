@@ -5,11 +5,13 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <div class="messages pre-scrollable">
                         
                     </div>
@@ -29,6 +31,20 @@
 
                         <button class="btn btn-block btn-primary" id="login">Bejelentkezés</button>
                     </div>
+                </div>
+                <div class="col-md-4" id="users">
+                    
+                </div>
+
+                <div id="chat-window" class="d-none">
+                    <h4 class="username"></h4>
+                    <div></div>
+
+                    <div class="form-group no-mb">
+                        <input type="text" id="chat-window-message">
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="chat-window-send">Küldés</button>
                 </div>
             </div>
         </div>

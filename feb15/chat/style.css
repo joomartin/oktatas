@@ -1,0 +1,13 @@
+#chat-window {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+}
+
+.no-mb {
+    margin-bottom: 0px !important;
+}
+
+.user {
+    cursor: pointer;
+}
