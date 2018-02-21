@@ -64,10 +64,9 @@ $(document).ready(function () {
     $('body').on('click', '.user', function () {
         const chatWindow = $('#chat-window');
 
-        chatWindow.removeClass('d-none');
         chatWindow
+            .removeClass('d-none')
             .find('.username')
             .html($(this).html());
     });
-
 });
