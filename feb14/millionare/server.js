@@ -23,8 +23,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
         response.json(questions);
     });
 
-    app.get('/questions/random', async (request, response) => {
-        const questions = await conn.query('SELECT * FROM questions WHERE difficulty = ' + request.query.difficulty);
+    app.post('/questions/random', async (request, response) => {
+        let query = 'SELECT * FROM questions WHERE difficulty = ' + request.query.difficulty;
+
+        if (request.body.excludedIds 
+            && request.body.excludedIds.length !== 0) {
+                const idsStr = request.body.excludedIds.join(',');
+
+                query += ' AND id NOT IN (' + idsStr + ')';
+            }
+
+        const questions = await conn.query(query);
         const result = questions.sort(() => Math.random() - 0.5);
 
         const question = result[0];
