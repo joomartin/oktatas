@@ -1,8 +1,8 @@
 const CHOOSES = [
-    { id: 1, symbol: 'A', active: true },
-    { id: 2, symbol: 'B' },
-    { id: 3, symbol: 'C' },
-    { id: 4, symbol: 'D' }
+    { id: 1, src: './img/banana.png', active: true },
+    { id: 2, src: './img/cherry.png' },
+    { id: 3, src: './img/seven.png' },
+    { id: 4, src: './img/pear.png' }
 ];
 
 $(document).ready(function () {
@@ -44,6 +44,10 @@ $(document).ready(function () {
         if (isWin(rolls)) {
             setTimeout(() => {
                 alert('Nyertél');
+
+                if (isSevenWin(rolls)) {
+                    console.log('HETES');
+                }
             }, 0);
         } else {
             console.log('Vesztettél');
@@ -61,5 +65,9 @@ $(document).ready(function () {
         // }
 
         // return true;
+    }
+
+    function isSevenWin(rolls) {
+        return rolls.every(r => r.id === 3);
     }
 });

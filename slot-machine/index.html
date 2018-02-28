@@ -22,15 +22,14 @@
 <script id="choose-template" type="text/x-handlebars-template">
     <div>
         {{#each chooses}}
-            <p class="item" data-id="{{ this.id }}" 
+            <img data-id="{{ this.id }}"
+                src="{{ this.src }}"
                 {{#if this.active}}
-                    class="active"
+                    class="item active"
                 {{else}}
-                    class="inactive"
+                    class="item inactive"
                 {{/if}}>
-
-                {{ this.symbol }}
-            </p>
+            </img>
         {{/each}}
     </div>
 </script>
