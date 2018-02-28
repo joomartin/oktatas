@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Dice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" id="main">
+                <h1>Dice</h1>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+<script id="levels-template" type="text/x-handlebars-template">
+    <div id="level-selector">
+        <h4>Válassz tétet</h4>        
+        {{#each levels}}
+            <button class="btn btn-primary set-level" id="{{ this.id }}">${{ this.balance }} ${{ this.betSize }} {{ this.odds }}:1</button>
+        {{/each}}
+    </div>
+</script>
+
+<script id="game-template" type="text/x-handlebars-template">
+    <div id="game">
+        <p>Egyenleg: <span id="balance-text">${{ currentLevel.balance }}</span></p>
+        <p>Fogadás: ${{ currentLevel.betSize }}</p>
+        <p>Odds: {{ currentLevel.odds }}:1</p>
+
+        <button class="btn btn-success" id="roll-dice">Dobás</button>
+
+        <div class="mt-2">Dobás értéke: <span id="roll" class="font-weight-bold"></span></div>
+
+        <div id="result-text" class="alert"></div>
+    </div>
+</script>

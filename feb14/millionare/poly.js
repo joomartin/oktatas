@@ -27,6 +27,11 @@ class Answer {
 class CorrectAnswer extends Answer {
     evaluate() {
         console.log('szipi szupi');
+        foo();
+    }
+
+    foo() {
+
     }
 }
 

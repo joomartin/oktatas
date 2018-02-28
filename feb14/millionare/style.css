@@ -42,3 +42,6 @@
     font-weight: bold;
     border-radius: 5px;
 }
+.btn:disabled {
+    opacity: 1;
+}

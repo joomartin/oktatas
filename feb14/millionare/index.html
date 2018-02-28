@@ -15,14 +15,7 @@
         <h1>Legyen ön is milliomos</h1>
         <div class="row">
             <div class="col-sm-8 left">
-                <div id="question-container">
-                    <div class="question-body text-center mb-1 pt-2">Blaj lbalksdhfkésldjf aksdjfhjklsa df</div>
-
-                    <button class="btn answer mb-1 mr-4 text-left"><span>A:</span> sfsd</button>
-                    <button class="btn answer mb-1 mr-4 text-left"><span>B:</span> sdhfgjg</button>
-                    <button class="btn answer mb-1 mr-4 text-left"><span>C:</span> zuutzf</button>
-                    <button class="btn answer mb-1 mr-4 text-left"><span>D:</span> gnbvmvb</button>
-                </div>
+                
             </div>
             <div class="col-sm-4 right">
                 <div id="helps">HELPS</div>
@@ -33,6 +26,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="./app.js"></script>
 </body>
@@ -46,6 +40,17 @@
         </tr>
         {{/each}}
     </table>
+</script>
+
+<script id="question-template" type="text/x-handlebars-template">
+    <div id="question-container">
+        <div class="question-body text-center mb-1 pt-2">{{ question.body }}</div>
+
+        <button class="btn answer mb-1 mr-4 text-left"><span>A:</span> {{ answers.A.body }}</button>
+        <button class="btn answer mb-1 mr-4 text-left"><span>B:</span> {{ answers.B.body }}</button>
+        <button class="btn answer mb-1 mr-4 text-left"><span>C:</span> {{ answers.C.body }}</button>
+        <button class="btn answer mb-1 mr-4 text-left"><span>D:</span> {{ answers.D.body }}</button>
+    </div>
 </script>
 
 </html>

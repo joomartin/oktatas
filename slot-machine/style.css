@@ -1,0 +1,15 @@
+.flex {
+    display: flex;
+}
+
+.flex div {
+    flex: 1; /*grow*/
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}

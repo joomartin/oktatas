@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>SLOT FUCK</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Slot Fuck</h1>
+
+    <div class="flex container">
+    </div>
+
+    <button id="roll">Pörgetés</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+<script id="choose-template" type="text/x-handlebars-template">
+    <div>
+        {{#each chooses}}
+            <p class="item" data-id="{{ this.id }}" 
+                {{#if this.active}}
+                    class="active"
+                {{else}}
+                    class="inactive"
+                {{/if}}>
+
+                {{ this.symbol }}
+            </p>
+        {{/each}}
+    </div>
+</script>
+
+</html>
